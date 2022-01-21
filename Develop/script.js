@@ -11,6 +11,7 @@ var lowerCase = 'abcdefghijklmnopqrstuvwxyz';
 var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 var numbers = '0123456789'
 var specialChars = '!@#$%^&*'
+var password = ""
 
 // using alert("Message here"), ask the user if they want lowercase, uppercase, etc...
 // use conditionals (if elf if...) to ask if the user wants lowercase, uppercase, etc.  
@@ -22,9 +23,9 @@ var specialChars = '!@#$%^&*'
 
 //created a function for generate password
 function generatePassword() {
+  password = ""
 
   //accumulator variables
-  var password = "";
   var possibleCharacters = "";
 
   //creates a user prompt to select password length
@@ -81,16 +82,21 @@ function generatePassword() {
     // console.log("password", password) 
 
   }
-  console.log("Final passowrd: ", password)
+
+  writePassword();
+
+  console.log("Final password: ", password)
 }
 
-generatePassword();
+
 
 
 // Write password to the #password input
 
 function writePassword() {
-  var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector("#password")
+  
+  
   passwordText.value = password;
 }
 
@@ -98,5 +104,5 @@ function writePassword() {
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
 
