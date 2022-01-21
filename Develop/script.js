@@ -21,14 +21,9 @@ var specialChars = '!@#$%^&*'
 
 
 //created a function for generate password
-//function generatePassword() 
-
-
-// Write password to the #password input
-function writePassword() {
+function generatePassword() {
 
   //accumulator variables
-
   var password = "";
   var possibleCharacters = "";
 
@@ -75,11 +70,6 @@ function writePassword() {
   }
 
 
-
-
-
-
-
   for (var i = 0; i < passwordUser; i++) {
     //this line creates a random number
     var randomNumber = Math.floor(Math.random() * possibleCharacters.length)
@@ -92,12 +82,20 @@ function writePassword() {
 
   }
   console.log("Final passowrd: ", password)
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
-
-  // passwordText.value = password;
-
 }
+
+generatePassword();
+
+
+// Write password to the #password input
+
+function writePassword() {
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
+
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
