@@ -28,8 +28,10 @@ var specialChars = '!@#$%^&*'
 function writePassword() {
 
   //accumulator variables
+
   var password = "";
-  var passwordChar = "";
+  var possibleCharacters = "";
+
   //creates a user prompt to select password length
   var passwordUser = window.prompt("Please indicate a password length between 8 characters and 128 characters.");
   passwordUser = parseInt(passwordUser);
@@ -44,8 +46,41 @@ function writePassword() {
     return "";
   }
 
+  // option to add lowercase characters 
+  var lowercaseOption = window.confirm(" Do you want to use lower case (a-z) letters in your password?");
 
-  for (var i = 0; i < 15; i++) {
+  if (lowercaseOption) {
+    possibleCharacters += lowerCase
+  }
+
+  //option to add uppercase characters
+  var upperCaseOption = window.confirm(" Do you want to use upper case (A-Z) letters in your password?");
+
+  if (upperCaseOption) {
+    possibleCharacters += upperCase
+  }
+
+  // option to add numbers
+  var numbersOption = window.confirm(" Woud you like to use numbers in your password?");
+
+  if (numbersOption) {
+    possibleCharacters += numbers
+  }
+
+  //option to add special characters
+  var specialCharOption = window.confirm(" Would you like to use special characters (!@#%^&*) in your password?");
+
+  if (specialCharOption) {
+    possibleCharacters += specialChars
+  }
+
+
+
+
+
+
+
+  for (var i = 0; i < passwordUser; i++) {
     //this line creates a random number
     var randomNumber = Math.floor(Math.random() * possibleCharacters.length)
     console.log("loop number: ", i)
